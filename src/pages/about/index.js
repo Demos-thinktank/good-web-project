@@ -9,14 +9,15 @@ export default class About extends Component {
   render() {
     let { description, projectPartners } = attributes;
     let main = description.map((para, k) => {
-      if (typeof para.paragraph === "object") {
+      if (k === 0) {
+        let firstParagraph = para.paragraph.split(" ");
         return (
           <p key={k}>
-            {para.paragraph.firstWord}
+            {firstParagraph[0]}{" "}
             <span style={{ color: "var(--gwp-orange)" }}>
-              {para.paragraph.highlighted}
+              {firstParagraph.slice(1, 4).join(" ")}{" "}
             </span>
-            {para.paragraph.rest}
+            {firstParagraph.slice(4).join(" ")}
           </p>
         );
       } else {
