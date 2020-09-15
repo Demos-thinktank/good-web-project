@@ -1,47 +1,51 @@
-import { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
 import { attributes } from "../../content/about.md";
 
-export default class About extends Component {
-  render() {
-    let { description, projectPartners } = attributes;
-    let main = description.map((para, k) => {
-      if (k === 0) {
-        let firstParagraph = para.paragraph.split(" ");
-        return (
-          <p key={k}>
-            {firstParagraph[0]}{" "}
-            <span style={{ color: "var(--gwp-orange)" }}>
-              {firstParagraph.slice(1, 4).join(" ")}{" "}
-            </span>
-            {firstParagraph.slice(4).join(" ")}
-          </p>
-        );
-      } else {
-        return <p key={k}>{para.paragraph}</p>;
-      }
-    });
-
-    let aside = projectPartners.partners.map((partner, k) => (
-      <div key={k}>
-        <p
-          style={{
-            borderBottom: "2px solid var(--gwp-orange)",
-            marginBottom: "0.4rem",
-            fontWeight: "500",
-          }}
-        >
-          {partner.partner}
+function About() {
+  const [loading, setloading] = useState(false);
+  useEffect(() => {
+    setloading(true);
+  }, []);
+  let { description, title, partners } = attributes;
+  let main = description.map((para, k) => {
+    if (k === 0) {
+      let firstParagraph = para.paragraph.split(" ");
+      return (
+        <p key={k}>
+          {firstParagraph[0]}{" "}
+          <span style={{ color: "var(--gwp-orange)" }}>
+            {firstParagraph.slice(1, 4).join(" ")}{" "}
+          </span>
+          {firstParagraph.slice(4).join(" ")}
         </p>
-        <p>{partner.description}</p>
-      </div>
-    ));
+      );
+    } else {
+      return <p key={k}>{para.paragraph}</p>;
+    }
+  });
 
-    return (
-      <>
+  let aside = partners.map((partner, k) => (
+    <div key={k}>
+      <p
+        style={{
+          borderBottom: "2px solid var(--gwp-orange)",
+          marginBottom: "0.4rem",
+          fontWeight: "500",
+        }}
+      >
+        {partner.partner}
+      </p>
+      <p>{partner.description}</p>
+    </div>
+  ));
+
+  return (
+    <>
+      {loading && (
         <Layout>
           <div style={{ margin: "auto" }}>
             <Container>
@@ -58,7 +62,7 @@ export default class About extends Component {
                         fontWeight: "500",
                       }}
                     >
-                      {projectPartners.title}
+                      {title}
                     </p>
                     {aside}
                   </div>
@@ -71,16 +75,12 @@ export default class About extends Component {
               .column1 {
                 margin-bottom: 3rem;
               }
-
-              // @media (max-width: 767px) {
-              //   .column1 {
-              //     margin-bottom: 3rem;
-              //   }
-              // }
             `}
           </style>
         </Layout>
-      </>
-    );
-  }
+      )}
+    </>
+  );
 }
+
+export default About;

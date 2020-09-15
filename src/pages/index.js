@@ -1,14 +1,18 @@
 // import Head from "next/head";
-import { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { attributes, react as HomeContent } from "../content/home.md";
 
-export default class Home extends Component {
-  render() {
-    let { title, cats } = attributes;
-    return (
-      <>
-        <Layout className="home-bkg">
+function Home() {
+  let { title, cats } = attributes;
+  const [loading, setloading] = useState(false);
+  useEffect(() => {
+    setloading(true);
+  }, []);
+  return (
+    <>
+      {loading && (
+        <Layout myClass="home-bkg">
           {/* <article>
             <h1>{title}</h1>
             <HomeContent />
@@ -22,7 +26,9 @@ export default class Home extends Component {
             </ul>
           </article> */}
         </Layout>
-      </>
-    );
-  }
+      )}
+    </>
+  );
 }
+
+export default Home;
