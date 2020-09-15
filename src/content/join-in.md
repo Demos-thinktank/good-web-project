@@ -1,5 +1,5 @@
 ---
-title: "Join In"
+title: "Join the Conversation"
 ---
 
-Join our mailing list to receive updates...
+Polis intro...

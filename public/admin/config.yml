@@ -24,23 +24,28 @@ collections:
         name: "about"
         file: "src/content/about.md"
         fields:
-          - label: "Description"
+          - label: "About description"
             name: "description"
             widget: list
             fields:
               - { label: "Paragraph", name: "paragraph", widget: "string" }
-          - label: "Project Partners"
-            name: "projectPartners"
+          - { label: "Partner Section Title", name: "title", widget: "string" }
+          - label: "Partners"
+            name: "partners"
             widget: list
             fields:
-              - { label: "Section title", name: "title", widget: "string" }
-              - label: "Partners"
-                name: "partners"
-                widget: list
-                fields:
-                  - { label: "Partner", name: "partner", widget: "string" }
-                  - {
-                      label: "Description",
-                      name: "description",
-                      widget: "string",
-                    }
+              - { label: "Partner", name: "partner", widget: "string" }
+              - { label: "Description", name: "description", widget: "string" }
+      - label: "Our Supporters"
+        name: "our supporters"
+        file: "src/content/our-supporters.md"
+        fields:
+          - { label: "Body", name: "body", widget: "markdown" }
+          - label: "Supporters"
+            name: "supporters"
+            widget: list
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "text" }
