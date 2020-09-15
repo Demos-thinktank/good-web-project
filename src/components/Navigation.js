@@ -3,89 +3,124 @@ import { useRouter } from "next/router";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
+import Button from "react-bootstrap/Button";
 import { useEffect } from "react";
-// import logo from "../src/assets/img/logo.png";
 
 export default function Navigation() {
   useEffect(() => {
     document.getElementById("basic-nav-dropdown").removeAttribute("href");
   }, []);
   const router = useRouter();
-  console.log(router.pathname);
+  let path = router.pathname;
+  let colour;
+  switch (path) {
+    case "/":
+    case "/research":
+      colour = "white";
+      break;
+    case "/about":
+    case "/our-supporters":
+    case "/join-in":
+    case path.match(/\/research.+/):
+    case "/login":
+      colour = "gray";
+      break;
+    default:
+      colour = "orange";
+  }
   return (
     <>
       <Navbar expand="md" style={{ marginBottom: "2rem" }}>
         <Navbar.Brand href="/">
           <img
             src="/assets/img/logo.png"
-            width="100"
-            height="auto"
-            // className="d-inline-block align-top"
+            width="auto"
+            height="120"
             alt="The good web project logo"
           />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          {/* <Nav width="inherit"> */}
           <div className="nav-items">
             <Nav.Link as={Link} href="/about">
-              About
+              <a
+                className={path == "/about" ? "nav-link-selected" : "nav-link"}
+              >
+                About
+              </a>
             </Nav.Link>
             <Nav.Link as={Link} href="/our-supporters">
-              Our Supporters
+              <a
+                className={
+                  path == "/our-supporters" ? "nav-link-selected" : "nav-link"
+                }
+              >
+                Our Supporters
+              </a>
             </Nav.Link>
             <Nav.Link as={Link} href="/join-in">
-              Join In
+              <a
+                className={
+                  path == "/join-in" ? "nav-link-selected" : "nav-link"
+                }
+              >
+                Join In
+              </a>
             </Nav.Link>
-            {/* <Nav.Link href="/research">Research</Nav.Link> */}
             <NavDropdown
-              // as={button}
               title="Research"
               id="basic-nav-dropdown"
-              // disabled
+              className={
+                path.match(/\/research.+/) ? "nav-link-selected" : "nav-link"
+              }
             >
-              <NavDropdown.Item href="/research">
+              <NavDropdown.Item
+                href="/research"
+                className={
+                  path == "/research/security-and-sovereignty"
+                    ? "navdropdown-link-selected"
+                    : "navdropdown-link"
+                }
+              >
                 Research Home
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/research/security-and-sovereignty">
+              <NavDropdown.Item
+                href="/research/security-and-sovereignty"
+                className={
+                  path == "/research/security-and-sovereignty"
+                    ? "navdropdown-link-selected"
+                    : "navdropdown-link"
+                }
+              >
                 Security and Sovereignty
               </NavDropdown.Item>
-              <NavDropdown.Item href="/research/the-digital-citizen">
+              <NavDropdown.Item
+                href="/research/the-digital-citizen"
+                className={
+                  path == "/research/the-digital-citizen"
+                    ? "navdropdown-link-selected"
+                    : "navdropdown-link"
+                }
+              >
                 The Digital Citizen
               </NavDropdown.Item>
-              <NavDropdown.Item href="/research/the-digital-commons">
+              <NavDropdown.Item
+                href="/research/the-digital-commons"
+                className={
+                  path == "/research/the-digital-commons"
+                    ? "navdropdown-link-selected"
+                    : "navdropdown-link"
+                }
+              >
                 The Digital Commons
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} href="/login">
-              Login
-            </Nav.Link>
+            <Button as={Link} href="/login">
+              <a className="nav-btn">Login</a>
+            </Button>
           </div>
-          {/* </Nav> */}
-          {/* <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form> */}
         </Navbar.Collapse>
-        {/* <div>
-          <li>
-            <Link href="/our-supporters">
-              <a className="">Our Supporters</a>
-            </Link>
-          </li> */}
-        {/* <li>
-            <Link href="/posts">
-              <a
-                className={
-                  router.pathname.startsWith("/posts") ? "active" : null
-                }
-              >
-                blog
-              </a>
-            </Link>
-          </li> */}
-        {/* </ul> */}
         <style jsx>
           {`
             .nav-items {
@@ -93,6 +128,9 @@ export default function Navigation() {
               display: flex;
               justify-content: space-around;
               align-items: center;
+              font-size: 1.2rem;
+              font-weight: 500;
+              color: ${colour} !important;
             }
 
             @media (max-width: 767px) {

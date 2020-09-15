@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Navigation from "./Navigation";
 
-export default function Layout({ children, className }) {
+export default function Layout({ children, myClass }) {
   return (
-    <div className={`root ${className ? className : ""}`}>
+    <div className={`root ${myClass ? myClass : ""}`}>
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,6 +31,11 @@ export default function Layout({ children, className }) {
           .home-bkg {
             background: url("/assets/img/home-bkg.png");
             background-position: center bottom;
+            background-size: cover;
+          }
+
+          .research-bkg {
+            background: url("/assets/img/research-bkg.png");
             background-size: cover;
           }
 
