@@ -5,14 +5,15 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
 
-ResearchSubPage.getInitialProps = ({ query }) => {
-  if (query) {
-    return {
-      description: attributes[query.page].description,
-      title: attributes[query.page].title,
-      research: attributes[query.page].research,
-    };
-  }
+ResearchSubPage.getInitialProps = async ({ query }) => {
+  // await data
+  await attributes;
+  await query;
+  return {
+    description: attributes[query.page].description,
+    title: attributes[query.page].title,
+    research: attributes[query.page].research,
+  };
 };
 
 export default function ResearchSubPage({ description, title, research }) {
