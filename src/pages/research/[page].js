@@ -16,24 +16,27 @@ ResearchSubPage.getInitialProps = ({ query }) => {
 };
 
 export default function ResearchSubPage({ description, title, research }) {
-  let main = description.map((para, k) => {
-    return <p key={k}>{para.paragraph}</p>;
-  });
+  let main, aside;
+  if (description && title && research) {
+    main = description.map((para, k) => {
+      return <p key={k}>{para.paragraph}</p>;
+    });
 
-  let aside = research.map((research, k) => (
-    <div key={k}>
-      <p
-        style={{
-          borderBottom: "2px solid var(--gwp-orange)",
-          marginBottom: "0.4rem",
-          fontWeight: "500",
-        }}
-      >
-        {research.title}
-      </p>
-      <p>{research.description}</p>
-    </div>
-  ));
+    aside = research.map((research, k) => (
+      <div key={k}>
+        <p
+          style={{
+            borderBottom: "2px solid var(--gwp-orange)",
+            marginBottom: "0.4rem",
+            fontWeight: "500",
+          }}
+        >
+          {research.title}
+        </p>
+        <p>{research.description}</p>
+      </div>
+    ));
+  }
 
   return (
     <>
