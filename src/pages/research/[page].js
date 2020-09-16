@@ -4,45 +4,57 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
+import { useRouter } from "next/router";
 
-ResearchSubPage.getInitialProps = async ({ query }) => {
-  // await data
-  await attributes;
-  await query;
+export async function getStaticProps() {
+  const data = await attributes;
+
   return {
-    description: attributes[query.page].description,
-    title: attributes[query.page].title,
-    research: attributes[query.page].research,
+    props: {
+      data,
+    },
   };
-};
+}
 
-export default function ResearchSubPage({ description, title, research }) {
-  let main, aside;
-  if (description && title && research) {
-    main = description.map((para, k) => {
-      return <p key={k}>{para.paragraph}</p>;
-    });
+export async function getStaticPaths() {
+  return {
+    paths: [
+      { params: { page: "the-digital-commons" } },
+      { params: { page: "the-digital-citizen" } },
+      { params: { page: "security-and-sovereignty" } },
+    ],
+    fallback: false,
+  };
+}
 
-    aside = research.map((research, k) => (
-      <div key={k}>
-        <p
-          style={{
-            borderBottom: "2px solid var(--gwp-orange)",
-            marginBottom: "0.4rem",
-            fontWeight: "500",
-          }}
-        >
-          {research.title}
-        </p>
-        <p>{research.description}</p>
-      </div>
-    ));
-  }
+export default function ResearchSubPage({ data }) {
+  // console.log("data", data);
+  const router = useRouter();
+  const { page } = router.query;
+  // console.log("page", page);
+  let main = data[page].description.map((para, k) => {
+    return <p key={k}>{para.paragraph}</p>;
+  });
+
+  let aside = data[page].research.map((research, k) => (
+    <div key={k}>
+      <p
+        style={{
+          borderBottom: "2px solid var(--gwp-orange)",
+          marginBottom: "0.4rem",
+          fontWeight: "500",
+        }}
+      >
+        {research.title}
+      </p>
+      <p>{research.description}</p>
+    </div>
+  ));
+  // }
 
   return (
     <>
       <Layout>
-        {/* <div style={{ margin: "auto" }}> */}
         <Container>
           <Row>
             <Col xs={12} lg={{ span: 5, offset: 1 }}>
@@ -56,14 +68,13 @@ export default function ResearchSubPage({ description, title, research }) {
                     fontWeight: "500",
                   }}
                 >
-                  {title}
+                  {data.title}
                 </p>
                 {aside}
               </div>
             </Col>
           </Row>
         </Container>
-        {/* </div> */}
         <style jsx>
           {`
             .column1 {

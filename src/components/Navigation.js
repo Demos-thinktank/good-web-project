@@ -13,7 +13,7 @@ export default function Navigation() {
   const router = useRouter();
   let path = router.pathname;
   let query = router.query;
-  console.log("p", query);
+  // console.log("p", query);
   let colour;
   switch (path) {
     case "/":
