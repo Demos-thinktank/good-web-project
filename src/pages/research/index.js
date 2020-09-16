@@ -16,11 +16,24 @@ const Research = () => {
     <>
       {loading && (
         <Layout myClass="research-bkg">
-          <Container style={{ marginTop: "20%" }}>
-            <Row style={{ justifyContent: "center", color: "white" }}>
-              <Col>Security and Sovereignty</Col>
-              <Col>The Digital Citizen</Col>
-              <Col>The Digital Commons</Col>
+          <Container>
+            <Row
+              style={{
+                justifyContent: "center",
+                color: "white",
+                marginBottom: "2rem",
+                fontSize: "1.2rem",
+              }}
+            >
+              <Col style={{ display: "flex", justifyContent: "center" }}>
+                Security and Sovereignty
+              </Col>
+              <Col style={{ display: "flex", justifyContent: "center" }}>
+                The Digital Citizen
+              </Col>
+              <Col style={{ display: "flex", justifyContent: "center" }}>
+                The Digital Commons
+              </Col>
             </Row>
             <Row>
               <img src="/assets/img/town.png" className="town-img" />
@@ -29,8 +42,8 @@ const Research = () => {
           <style jsx>
             {`
               .town-img {
-                width: 95%;
-                margin: 0 auto;
+                width: 100%;
+                margin: 0 auto 2rem auto;
               }
             `}
           </style>

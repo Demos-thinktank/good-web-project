@@ -84,16 +84,16 @@ function OurSupporters() {
     <>
       {loading && (
         <Layout>
-          <div style={{ margin: "auto" }}>
-            <Container>
-              <Row>
-                <Col xs={12} style={{ textAlign: "center" }}>
-                  <SupportersContent />
-                </Col>
-              </Row>
-              <Row style={{ justifyContent: "center" }}>{contributors}</Row>
-            </Container>
-          </div>
+          {/* <div style={{ margin: "auto" }}> */}
+          <Container>
+            <Row>
+              <Col xs={12} style={{ textAlign: "center" }}>
+                <SupportersContent />
+              </Col>
+            </Row>
+            <Row style={{ justifyContent: "center" }}>{contributors}</Row>
+          </Container>
+          {/* </div> */}
           <style jsx>
             {`
               .supporter-img {

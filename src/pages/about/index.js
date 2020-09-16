@@ -10,7 +10,9 @@ function About() {
   useEffect(() => {
     setloading(true);
   }, []);
+
   let { description, title, partners } = attributes;
+
   let main = description.map((para, k) => {
     if (k === 0) {
       let firstParagraph = para.paragraph.split(" ");
@@ -47,29 +49,28 @@ function About() {
     <>
       {loading && (
         <Layout>
-          <div style={{ margin: "auto" }}>
-            <Container>
-              <Row>
-                <Col xs={12} lg={{ span: 5, offset: 1 }}>
-                  <div className="column1">{main}</div>
-                </Col>
-                <Col xs={12} lg={{ span: 4, offset: 1 }}>
-                  <div className="column2">
-                    <p
-                      style={{
-                        color: "var(--gwp-orange)",
-                        fontSize: "1.1rem",
-                        fontWeight: "500",
-                      }}
-                    >
-                      {title}
-                    </p>
-                    {aside}
-                  </div>
-                </Col>
-              </Row>
-            </Container>
-          </div>
+          {/* <div style={{ margin: "auto" }}> */}
+          <Container>
+            <Row>
+              <Col xs={12} lg={{ span: 5, offset: 1 }}>
+                <div className="column1">{main}</div>
+              </Col>
+              <Col xs={12} lg={{ span: 4, offset: 1 }}>
+                <div className="column2">
+                  <p
+                    style={{
+                      color: "var(--gwp-orange)",
+                      fontWeight: "500",
+                    }}
+                  >
+                    {title}
+                  </p>
+                  {aside}
+                </div>
+              </Col>
+            </Row>
+          </Container>
+          {/* </div> */}
           <style jsx>
             {`
               .column1 {

@@ -12,6 +12,8 @@ export default function Navigation() {
   }, []);
   const router = useRouter();
   let path = router.pathname;
+  let query = router.query;
+  console.log("p", query);
   let colour;
   switch (path) {
     case "/":
@@ -26,7 +28,7 @@ export default function Navigation() {
       colour = "gray";
       break;
     default:
-      colour = "orange";
+      colour = "gray";
   }
   return (
     <>
@@ -70,50 +72,61 @@ export default function Navigation() {
             <NavDropdown
               title="Research"
               id="basic-nav-dropdown"
-              className={
-                path.match(/\/research.+/) ? "nav-link-selected" : "nav-link"
-              }
+              style={{
+                color: path.includes("research") && "rgb(239, 87, 52)",
+              }}
             >
-              <NavDropdown.Item
-                href="/research"
-                className={
-                  path == "/research/security-and-sovereignty"
-                    ? "navdropdown-link-selected"
-                    : "navdropdown-link"
-                }
-              >
-                Research Home
+              <NavDropdown.Item as={Link} href="/research">
+                <a
+                  className={
+                    query == "/security-and-sovereignty"
+                      ? "navdropdown-link-selected"
+                      : "navdropdown-link"
+                  }
+                >
+                  Research Home
+                </a>
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              <NavDropdown.Divider
+                style={{
+                  borderColor: "rgb(239, 87, 52, 0.4)",
+                }}
+              />
               <NavDropdown.Item
+                as={Link}
                 href="/research/security-and-sovereignty"
-                className={
-                  path == "/research/security-and-sovereignty"
-                    ? "navdropdown-link-selected"
-                    : "navdropdown-link"
-                }
               >
-                Security and Sovereignty
+                <a
+                  className={
+                    query == "/security-and-sovereignty"
+                      ? "navdropdown-link-selected"
+                      : "navdropdown-link"
+                  }
+                >
+                  Security and Sovereignty
+                </a>
               </NavDropdown.Item>
-              <NavDropdown.Item
-                href="/research/the-digital-citizen"
-                className={
-                  path == "/research/the-digital-citizen"
-                    ? "navdropdown-link-selected"
-                    : "navdropdown-link"
-                }
-              >
-                The Digital Citizen
+              <NavDropdown.Item as={Link} href="/research/the-digital-citizen">
+                <a
+                  className={
+                    query == "/the-digital-citizen"
+                      ? "navdropdown-link-selected"
+                      : "navdropdown-link"
+                  }
+                >
+                  The Digital Citizen
+                </a>
               </NavDropdown.Item>
-              <NavDropdown.Item
-                href="/research/the-digital-commons"
-                className={
-                  path == "/research/the-digital-commons"
-                    ? "navdropdown-link-selected"
-                    : "navdropdown-link"
-                }
-              >
-                The Digital Commons
+              <NavDropdown.Item as={Link} href="/research/the-digital-commons">
+                <a
+                  className={
+                    path == "/research/the-digital-commons"
+                      ? "navdropdown-link-selected"
+                      : "navdropdown-link"
+                  }
+                >
+                  The Digital Commons
+                </a>
               </NavDropdown.Item>
             </NavDropdown>
             <Button as={Link} href="/login">
@@ -128,8 +141,8 @@ export default function Navigation() {
               display: flex;
               justify-content: space-around;
               align-items: center;
-              font-size: 1.2rem;
-              font-weight: 500;
+              font-size: 1.4rem;
+              font-weight: 600;
               color: ${colour} !important;
             }
 
