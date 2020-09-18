@@ -19,7 +19,7 @@ function About() {
       return (
         <p key={k}>
           {firstParagraph[0]}{" "}
-          <span style={{ color: "var(--gwp-orange)" }}>
+          <span style={{ color: "var(--gwp-orange)", fontWeight: "500" }}>
             {firstParagraph.slice(1, 4).join(" ")}{" "}
           </span>
           {firstParagraph.slice(4).join(" ")}
