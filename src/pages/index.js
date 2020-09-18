@@ -25,6 +25,13 @@ function Home() {
               ))}
             </ul>
           </article> */}
+          {/* <div className="research-table"></div> */}
+          {/* <style jsx>
+            {`
+              .research-table {
+              }
+            `}
+          </style> */}
         </Layout>
       )}
     </>

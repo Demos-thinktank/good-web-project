@@ -66,14 +66,14 @@ function OurSupporters() {
           />
           {visibility[k] && (
             <Card.ImgOverlay
-              style={{ backgroundColor: "inherit", opacity: "0.9" }}
+              style={{ backgroundColor: "inherit", opacity: "1" }}
             >
               <Card.Text>{supporter.description}</Card.Text>
             </Card.ImgOverlay>
           )}
           <Card.Body>
             <Card.Title>{supporter.name}</Card.Title>
-            <Card.Text>{supporter.title}</Card.Text>
+            {/* <Card.Text>{supporter.title}</Card.Text> */}
           </Card.Body>
         </Card>
       </Col>
