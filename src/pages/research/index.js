@@ -34,8 +34,12 @@ const Research = () => {
                         : "1px solid transparent",
                       marginBottom: 0,
                       paddingBottom: "0.3rem",
-                      fontWeight: "500",
+                      fontWeight: "200",
+                      fontSize: "1.5rem",
                       cursor: "pointer",
+                      textAlign: "center",
+                      display: "flex",
+                      alignItems: "flex-end",
                     }}
                     onMouseEnter={() =>
                       setopacity((opacity) => ({ ...opacity, one: true }))
@@ -57,8 +61,12 @@ const Research = () => {
                         : "1px solid transparent",
                       marginBottom: 0,
                       paddingBottom: "0.3rem",
-                      fontWeight: "500",
+                      fontWeight: "200",
+                      fontSize: "1.5rem",
                       cursor: "pointer",
+                      textAlign: "center",
+                      display: "flex",
+                      alignItems: "flex-end",
                     }}
                     onMouseEnter={() =>
                       setopacity((opacity) => ({ ...opacity, two: true }))
@@ -80,7 +88,12 @@ const Research = () => {
                         : "1px solid transparent",
                       marginBottom: 0,
                       paddingBottom: "0.3rem",
+                      fontWeight: "200",
+                      fontSize: "1.5rem",
                       cursor: "pointer",
+                      textAlign: "center",
+                      display: "flex",
+                      alignItems: "flex-end",
                     }}
                     onMouseEnter={() =>
                       setopacity((opacity) => ({ ...opacity, three: true }))

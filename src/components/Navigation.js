@@ -32,7 +32,7 @@ export default function Navigation() {
   }
   return (
     <>
-      <Navbar expand="md" style={{ marginBottom: "2rem" }}>
+      <Navbar expand="lg" style={{ marginBottom: "2rem" }}>
         <Navbar.Brand href="/">
           <img
             src="/assets/img/logo.png"
