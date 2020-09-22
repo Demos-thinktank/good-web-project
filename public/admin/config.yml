@@ -81,12 +81,12 @@ collections:
             name: "security and sovereignty"
             widget: object
             fields:
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Description"
                 name: "description"
                 widget: "list"
                 fields:
                   - { label: "Paragraph", name: "paragraph", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string" }
               - label: "Research"
                 name: "research"
                 widget: "list"
@@ -101,12 +101,12 @@ collections:
             name: "the digital citizen"
             widget: object
             fields:
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Description"
                 name: "description"
                 widget: "list"
                 fields:
                   - { label: "Paragraph", name: "paragraph", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string" }
               - label: "Research"
                 name: "research"
                 widget: "list"
@@ -121,12 +121,12 @@ collections:
             name: "security and sovereignty"
             widget: object
             fields:
+              - { label: "Title", name: "title", widget: "string" }
               - label: "Description"
                 name: "description"
                 widget: "list"
                 fields:
                   - { label: "Paragraph", name: "paragraph", widget: "string" }
-                  - { label: "Title", name: "title", widget: "string" }
               - label: "Research"
                 name: "research"
                 widget: "list"
