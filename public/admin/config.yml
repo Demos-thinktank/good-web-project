@@ -79,7 +79,7 @@ collections:
         fields:
           - label: "Security and Sovereignty"
             name: "security and sovereignty"
-            widget: list
+            widget: object
             fields:
               - label: "Description"
                 name: "description"
@@ -99,7 +99,7 @@ collections:
                     }
           - label: "The Digital Citizen"
             name: "the digital citizen"
-            widget: list
+            widget: object
             fields:
               - label: "Description"
                 name: "description"
@@ -119,7 +119,7 @@ collections:
                     }
           - label: "The Digital Commons"
             name: "security and sovereignty"
-            widget: list
+            widget: object
             fields:
               - label: "Description"
                 name: "description"
