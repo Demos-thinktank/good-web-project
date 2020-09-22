@@ -78,7 +78,7 @@ collections:
         file: "src/content/research-sub-page.md"
         fields:
           - label: "Security and Sovereignty"
-            name: "security and sovereignty"
+            name: "security-and-sovereignty"
             widget: object
             fields:
               - { label: "Title", name: "title", widget: "string" }
@@ -98,7 +98,7 @@ collections:
                       widget: "string",
                     }
           - label: "The Digital Citizen"
-            name: "the digital citizen"
+            name: "the-digital-citizen"
             widget: object
             fields:
               - { label: "Title", name: "title", widget: "string" }
@@ -118,7 +118,7 @@ collections:
                       widget: "string",
                     }
           - label: "The Digital Commons"
-            name: "security and sovereignty"
+            name: "the-digital-commons"
             widget: object
             fields:
               - { label: "Title", name: "title", widget: "string" }
