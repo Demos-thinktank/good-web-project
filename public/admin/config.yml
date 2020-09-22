@@ -7,19 +7,19 @@ collections:
   - name: "pages"
     label: "Pages"
     files:
-      - label: "Home"
-        name: "home"
-        file: "src/content/home.md"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Publish Date", name: "date", widget: "datetime" }
-          - { label: "Body", name: "body", widget: "markdown" }
-          - label: "Cats"
-            name: "cats"
-            widget: list
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
+      # - label: "Home"
+      #   name: "home"
+      #   file: "src/content/home.md"
+      #   fields:
+      #     - { label: "Title", name: "title", widget: "string" }
+      #     - { label: "Publish Date", name: "date", widget: "datetime" }
+      #     - { label: "Body", name: "body", widget: "markdown" }
+      #     - label: "Cats"
+      #       name: "cats"
+      #       widget: list
+      #       fields:
+      #         - { label: "Name", name: "name", widget: "string" }
+      #         - { label: "Description", name: "description", widget: "text" }
       - label: "About"
         name: "about"
         file: "src/content/about.md"
@@ -66,3 +66,74 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
+      - label: "Research Home"
+        name: "research home"
+        file: "src/content/research-home.md"
+        fields:
+          - { label: "Section1", name: "section1", widget: "string" }
+          - { label: "Section2", name: "section2", widget: "string" }
+          - { label: "Section3", name: "section3", widget: "string" }
+      - label: "Research Sub Pages"
+        name: "research sub pages"
+        file: "src/content/research-sub-page.md"
+        fields:
+          - label: "Security and Sovereignty"
+            name: "security and sovereignty"
+            widget: list
+            fields:
+              - label: "Description"
+                name: "description"
+                widget: "list"
+                fields:
+                  - { label: "Paragraph", name: "paragraph", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Research"
+                name: "research"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - {
+                      label: "Description",
+                      name: "description",
+                      widget: "string",
+                    }
+          - label: "The Digital Citizen"
+            name: "the digital citizen"
+            widget: list
+            fields:
+              - label: "Description"
+                name: "description"
+                widget: "list"
+                fields:
+                  - { label: "Paragraph", name: "paragraph", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "Research"
+                name: "research"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - {
+                      label: "Description",
+                      name: "description",
+                      widget: "string",
+                    }
+          - label: "The Digital Commons"
+            name: "security and sovereignty"
+            widget: list
+            fields:
+              - label: "Description"
+                name: "description"
+                widget: "list"
+                fields:
+                  - { label: "Paragraph", name: "paragraph", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+              - label: "Research"
+                name: "research"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - {
+                      label: "Description",
+                      name: "description",
+                      widget: "string",
+                    }
