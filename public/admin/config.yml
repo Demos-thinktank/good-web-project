@@ -86,7 +86,7 @@ collections:
                 widget: "list"
                 fields:
                   - { label: "Paragraph", name: "paragraph", widget: "string" }
-              - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
               - label: "Research"
                 name: "research"
                 widget: "list"
