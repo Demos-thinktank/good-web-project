@@ -146,7 +146,7 @@ export default function Navigation() {
               color: ${colour} !important;
             }
 
-            @media (max-width: 767px) {
+            @media (max-width: 991px) {
               .nav-items {
                 width: 100%;
                 display: flex;
