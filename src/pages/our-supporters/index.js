@@ -1,35 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
-import {
-  attributes,
-  react as SupportersContent,
-} from "../../content/our-supporters.md";
+import { attributes } from "../../content/our-supporters.md";
 
-let { supporters } = attributes;
+export async function getStaticProps() {
+  const data = await attributes;
 
-function OurSupporters() {
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+function OurSupporters({ data }) {
+  let { description, supporters } = data;
   const [visibility, setvisibility] = useState(
     Array(supporters.length).fill(false)
   );
-  const [loading, setloading] = useState(false);
-  useEffect(() => {
-    setloading(true);
-  }, []);
 
   let contributors = supporters.map((supporter, k) => {
-    let bgCol;
-    if (k == 0 || k % 4 == 0) {
-      bgCol = "rgb(197, 7, 77)";
-    } else if (k == 1 || k % 5 == 0) {
-      bgCol = "rgb(239, 87, 52)";
-    } else {
-      bgCol = "rgb(189, 189, 189)";
-    }
-
     return (
       <Col
         xs={12}
@@ -44,7 +37,7 @@ function OurSupporters() {
           className="text-white"
           style={{
             margin: "1rem 0",
-            backgroundColor: `${bgCol}`,
+            backgroundColor: `${supporter.cardColor}`,
             border: "none",
             padding: "0.2rem",
           }}
@@ -82,31 +75,26 @@ function OurSupporters() {
 
   return (
     <>
-      {loading && (
-        <Layout>
-          {/* <div style={{ margin: "auto" }}> */}
-          <Container>
-            <Row>
-              <Col xs={12} style={{ textAlign: "center" }}>
-                <SupportersContent />
-              </Col>
-            </Row>
-            <Row style={{ justifyContent: "center" }}>{contributors}</Row>
-          </Container>
-          {/* </div> */}
-          <style jsx>
-            {`
-              .supporter-img {
-                height: 30vh;
-                object-fit: cover;
-              }
-            `}
-          </style>
-        </Layout>
-      )}
+      <Layout>
+        <Container>
+          <Row>
+            <Col xs={12} style={{ textAlign: "center" }}>
+              {description}
+            </Col>
+          </Row>
+          <Row style={{ justifyContent: "center" }}>{contributors}</Row>
+        </Container>
+        <style jsx>
+          {`
+            .supporter-img {
+              height: 30vh;
+              object-fit: cover;
+            }
+          `}
+        </style>
+      </Layout>
     </>
   );
-  // }
 }
 
 export default OurSupporters;

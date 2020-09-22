@@ -1,17 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
 import { attributes } from "../../content/about.md";
 
-function About() {
-  const [loading, setloading] = useState(false);
-  useEffect(() => {
-    setloading(true);
-  }, []);
+export async function getStaticProps() {
+  const data = await attributes;
 
-  let { description, title, partners } = attributes;
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+function About({ data }) {
+  let { description, title, partners } = data;
 
   let main = description.map((para, k) => {
     if (k === 0) {
@@ -47,39 +52,37 @@ function About() {
 
   return (
     <>
-      {loading && (
-        <Layout>
-          {/* <div style={{ margin: "auto" }}> */}
-          <Container>
-            <Row>
-              <Col xs={12} lg={{ span: 5, offset: 1 }}>
-                <div className="column1">{main}</div>
-              </Col>
-              <Col xs={12} lg={{ span: 4, offset: 1 }}>
-                <div className="column2">
-                  <p
-                    style={{
-                      color: "var(--gwp-orange)",
-                      fontWeight: "500",
-                    }}
-                  >
-                    {title}
-                  </p>
-                  {aside}
-                </div>
-              </Col>
-            </Row>
-          </Container>
-          {/* </div> */}
-          <style jsx>
-            {`
-              .column1 {
-                margin-bottom: 3rem;
-              }
-            `}
-          </style>
-        </Layout>
-      )}
+      <Layout>
+        {/* <div style={{ margin: "auto" }}> */}
+        <Container>
+          <Row>
+            <Col xs={12} lg={{ span: 5, offset: 1 }}>
+              <div className="column1">{main}</div>
+            </Col>
+            <Col xs={12} lg={{ span: 4, offset: 1 }}>
+              <div className="column2">
+                <p
+                  style={{
+                    color: "var(--gwp-orange)",
+                    fontWeight: "500",
+                  }}
+                >
+                  {title}
+                </p>
+                {aside}
+              </div>
+            </Col>
+          </Row>
+        </Container>
+        {/* </div> */}
+        <style jsx>
+          {`
+            .column1 {
+              margin-bottom: 3rem;
+            }
+          `}
+        </style>
+      </Layout>
     </>
   );
 }

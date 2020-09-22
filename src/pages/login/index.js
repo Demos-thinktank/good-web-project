@@ -3,9 +3,20 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
-import { attributes, react as LoginInContent } from "../../content/login.md";
+import { attributes } from "../../content/login.md";
 
-const Login = () => {
+export async function getStaticProps() {
+  const data = await attributes;
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+const Login = ({ data }) => {
+  let { description } = data;
   return (
     <Layout>
       <Container>
@@ -28,7 +39,7 @@ const Login = () => {
               width: "95%",
             }}
           >
-            <LoginInContent />
+            {description}
           </div>
         </Row>
       </Container>

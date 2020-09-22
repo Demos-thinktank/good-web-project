@@ -3,9 +3,20 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
-import { attributes, react as JoinInContent } from "../../content/join-in.md";
+import { attributes } from "../../content/join-in.md";
 
-function JoinIn() {
+export async function getStaticProps() {
+  const data = await attributes;
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+function JoinIn({ data }) {
+  let { description, polis } = data;
   return (
     <>
       <Layout>
@@ -49,20 +60,23 @@ function JoinIn() {
                 width: "95%",
               }}
             >
-              <JoinInContent />
+              {description}
             </div>
           </Row>
           <Row>
-            <iframe
-              src="https://pol.is/3tkbwzpauc"
-              title="Polis conversation"
-              id="myiframe"
-              style={{
-                width: "100%",
-                minHeight: "1400px",
-                borderWidth: "0px",
-              }}
-            ></iframe>
+            {polis ? (
+              <iframe
+                src={polis}
+                title="Polis conversation"
+                style={{
+                  width: "100%",
+                  minHeight: "1400px",
+                  borderWidth: "0px",
+                }}
+              ></iframe>
+            ) : (
+              loading
+            )}
           </Row>
         </Container>
       </Layout>

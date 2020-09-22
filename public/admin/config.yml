@@ -40,7 +40,7 @@ collections:
         name: "our supporters"
         file: "src/content/our-supporters.md"
         fields:
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Description", name: "description", widget: "text" }
           - label: "Supporters"
             name: "supporters"
             widget: list
@@ -49,9 +49,20 @@ collections:
               # - { label: "Title", name: "title", widget: "string" }
               - { label: "Description", name: "description", widget: "text" }
               - { label: "Image", name: "image", widget: "text" }
+              - {
+                  label: "Card Background Color",
+                  name: "cardColor",
+                  widget: "text",
+                }
       - label: "Join In"
         name: "join in"
         file: "src/content/join-in.md"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Body", name: "body", widget: "markdown" }
+          - { label: "Description", name: "description", widget: "text" }
+      - label: "Login"
+        name: "login"
+        file: "src/content/login.md"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
