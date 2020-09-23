@@ -52,7 +52,7 @@ function About({ data }) {
 
   return (
     <>
-      <Layout>
+      <Layout title="About | The Good Web Project">
         {/* <div style={{ margin: "auto" }}> */}
         <Container>
           <Row>

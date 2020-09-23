@@ -22,6 +22,12 @@ function OurSupporters({ data }) {
     Array(supporters.length).fill(false)
   );
 
+  let linkArr = [];
+  supporters.map((supporter) =>
+    linkArr.push({ rel: "preload", href: supporter.image, as: "image" })
+  );
+  const title = "Our Supporters | The Good Web Project";
+
   let contributors = supporters.map((supporter, k) => {
     return (
       <Col
@@ -75,7 +81,7 @@ function OurSupporters({ data }) {
 
   return (
     <>
-      <Layout>
+      <Layout links={linkArr} title={title}>
         <Container>
           <Row>
             <Col xs={12} style={{ textAlign: "center" }}>

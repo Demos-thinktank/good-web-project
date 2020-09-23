@@ -16,10 +16,16 @@ export async function getStaticProps() {
 }
 
 function JoinIn({ data }) {
-  let { description, polis } = data;
+  let { description } = data;
+
+  const link = [
+    { rel: "preload", href: "https://pol.is/3tkbwzpauc", as: "document" },
+  ];
+  const title = "Join In | The Good Web Project";
+
   return (
     <>
-      <Layout>
+      <Layout links={link} title={title}>
         <Container>
           <Row>
             {/* <Col xs={12}>
@@ -64,19 +70,15 @@ function JoinIn({ data }) {
             </div>
           </Row>
           <Row>
-            {polis ? (
-              <iframe
-                src={polis}
-                title="Polis conversation"
-                style={{
-                  width: "100%",
-                  minHeight: "1400px",
-                  borderWidth: "0px",
-                }}
-              ></iframe>
-            ) : (
-              loading
-            )}
+            <iframe
+              src="https://pol.is/3tkbwzpauc"
+              title="Polis conversation"
+              style={{
+                width: "100%",
+                minHeight: "1400px",
+                borderWidth: "0px",
+              }}
+            ></iframe>
           </Row>
         </Container>
       </Layout>

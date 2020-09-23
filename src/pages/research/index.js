@@ -4,17 +4,69 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Layout from "../../components/Layout";
+import { attributes } from "../../content/research-home.md";
 
-const Research = () => {
+export async function getStaticProps() {
+  const data = await attributes;
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
+
+const Research = ({ data }) => {
   const [opacity, setopacity] = useState({
     one: false,
     two: false,
     three: false,
   });
 
+  // add attribute to html?
+  function handleMouseEnter(e) {
+    let { innerText } = e.target;
+    switch (innerText) {
+      case "Security and Sovereignty":
+        setopacity((opacity) => ({ ...opacity, one: true }));
+        break;
+      case "The Digital Citizen":
+        setopacity((opacity) => ({ ...opacity, two: true }));
+        break;
+      case "The Digital Commons":
+        setopacity((opacity) => ({ ...opacity, three: true }));
+        break;
+      default:
+        console.log("An error occured");
+    }
+  }
+
+  function handleMouseLeave(e) {
+    let { innerText } = e.target;
+    switch (innerText) {
+      case "Security and Sovereignty":
+        setopacity((opacity) => ({ ...opacity, one: false }));
+        break;
+      case "The Digital Citizen":
+        setopacity((opacity) => ({ ...opacity, two: false }));
+        break;
+      case "The Digital Commons":
+        setopacity((opacity) => ({ ...opacity, three: false }));
+        break;
+      default:
+        console.log("An error occured");
+    }
+  }
+
+  const links = [
+    { rel: "preload", href: "/assets/img/research-bkg.png", as: "image" },
+    { rel: "preload", href: "/assets/img/town.png", as: "image" },
+  ];
+  const title = "Research Home | The Good Web Project";
+
   return (
     <>
-      <Layout myClass="research-bkg">
+      <Layout rootClass="research-bkg" links={links} title={title}>
         <div style={{ margin: "auto 0" }}>
           <Container>
             <Row
@@ -28,81 +80,33 @@ const Research = () => {
               <Col style={{ display: "flex", justifyContent: "center" }}>
                 <Link href="/research/security-and-sovereignty">
                   <p
-                    style={{
-                      borderBottom: opacity.one
-                        ? "1px solid rgb(239, 87, 52)"
-                        : "1px solid transparent",
-                      marginBottom: 0,
-                      paddingBottom: "0.3rem",
-                      fontWeight: "200",
-                      fontSize: "1.5rem",
-                      cursor: "pointer",
-                      textAlign: "center",
-                      display: "flex",
-                      alignItems: "flex-end",
-                    }}
-                    onMouseEnter={() =>
-                      setopacity((opacity) => ({ ...opacity, one: true }))
-                    }
-                    onMouseLeave={() =>
-                      setopacity((opacity) => ({ ...opacity, one: false }))
-                    }
+                    className="building b1"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    Security and Sovereignty
+                    {data.section1}
                   </p>
                 </Link>
               </Col>
               <Col style={{ display: "flex", justifyContent: "center" }}>
                 <Link href="/research/the-digital-citizen">
                   <p
-                    style={{
-                      borderBottom: opacity.two
-                        ? "1px solid rgb(239, 87, 52)"
-                        : "1px solid transparent",
-                      marginBottom: 0,
-                      paddingBottom: "0.3rem",
-                      fontWeight: "200",
-                      fontSize: "1.5rem",
-                      cursor: "pointer",
-                      textAlign: "center",
-                      display: "flex",
-                      alignItems: "flex-end",
-                    }}
-                    onMouseEnter={() =>
-                      setopacity((opacity) => ({ ...opacity, two: true }))
-                    }
-                    onMouseLeave={() =>
-                      setopacity((opacity) => ({ ...opacity, two: false }))
-                    }
+                    className="building b2"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    The Digital Citizen
+                    {data.section2}
                   </p>
                 </Link>
               </Col>
               <Col style={{ display: "flex", justifyContent: "center" }}>
                 <Link href="/research/the-digital-commons">
                   <p
-                    style={{
-                      borderBottom: opacity.three
-                        ? "1px solid rgb(239, 87, 52)"
-                        : "1px solid transparent",
-                      marginBottom: 0,
-                      paddingBottom: "0.3rem",
-                      fontWeight: "200",
-                      fontSize: "1.5rem",
-                      cursor: "pointer",
-                      textAlign: "center",
-                      display: "flex",
-                      alignItems: "flex-end",
-                    }}
-                    onMouseEnter={() =>
-                      setopacity((opacity) => ({ ...opacity, three: true }))
-                    }
-                    onMouseLeave={() =>
-                      setopacity((opacity) => ({ ...opacity, three: false }))
-                    }
+                    className="building b3"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    The Digital Commons
+                    {data.section3}
                   </p>
                 </Link>
               </Col>
@@ -182,6 +186,31 @@ const Research = () => {
               width: 16%;
               opacity: ${opacity.three ? "1" : "0"};
               z-index: 1;
+            }
+            .building {
+              margin-bottom: 0;
+              padding-bottom: 0.3rem;
+              font-weight: 200;
+              font-size: 1.5rem;
+              cursor: pointer;
+              text-align: center;
+              display: flex;
+              align-items: flex-end;
+            }
+            .b1 {
+              border-bottom: ${opacity.one
+                ? "1px solid rgb(239, 87, 52)"
+                : "1px solid transparent"};
+            }
+            .b2 {
+              border-bottom: ${opacity.two
+                ? "1px solid rgb(239, 87, 52)"
+                : "1px solid transparent"};
+            }
+            .b3 {
+              border-bottom: ${opacity.three
+                ? "1px solid rgb(239, 87, 52)"
+                : "1px solid transparent"};
             }
           `}
         </style>

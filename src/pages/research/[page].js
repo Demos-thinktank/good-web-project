@@ -51,10 +51,14 @@ export default function ResearchSubPage({ data }) {
     </div>
   ));
   // }
+  const title = `${page
+    .split("-")
+    .map((word) => word[0].toUpperCase() + word.slice(1))
+    .join(" ")} | The Good Web Project`;
 
   return (
     <>
-      <Layout>
+      <Layout title={title}>
         <Container>
           <Row>
             <Col xs={12} lg={{ span: 5, offset: 1 }}>

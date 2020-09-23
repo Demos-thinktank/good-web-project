@@ -17,8 +17,14 @@ export async function getStaticProps() {
 
 const Login = ({ data }) => {
   let { description } = data;
+
+  const links = [
+    { rel: "preload", href: "/assets/img/construction.gif", as: "image" },
+  ];
+  const title = "Login | The Good Web Project";
+
   return (
-    <Layout>
+    <Layout title={title} links={links}>
       <Container>
         <Row>
           {/* <h3
