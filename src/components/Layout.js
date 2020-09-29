@@ -7,6 +7,10 @@ export default function Layout({ children, rootClass, title, links }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="robots"
+          content="noindex, nofollow, nosnippet, noarchive, noimageindex"
+        ></meta>
         {title && <title>{title}</title>}
         <link rel="manifest" href="/site.webmanifest" />
         <link rel="apple-touch-icon" href="/icon.png" />

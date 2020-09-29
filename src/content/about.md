@@ -15,8 +15,7 @@ description:
       race to reshape the most important international political, cultural and
       social space in existence.
   - paragraph: >-
-      We must not focus on what we don’t want, and forget about what we do. Foo
-      Bar, Hello world
+      We must not focus on what we don’t want, and forget about what we do.
 title: Project Partners
 partners:
   - description: One Sentence Description
@@ -28,4 +27,3 @@ partners:
   - description: One Sentence Description
     partner: Demos
 ---
-
