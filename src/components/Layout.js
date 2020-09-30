@@ -35,13 +35,13 @@ export default function Layout({ children, rootClass, title, links }) {
             flex-direction: column;
           }
           .home-bkg {
-            background: url("/assets/img/home-bkg.png");
+            background: url("/assets/img/home-bkg.webp");
             background-position: center bottom;
             background-size: cover;
           }
 
           .research-bkg {
-            background: url("/assets/img/research-bkg.png");
+            background: url("/assets/img/research-bkg.webp");
             background-size: cover;
           }
 

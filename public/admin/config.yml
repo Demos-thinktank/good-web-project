@@ -60,12 +60,15 @@ collections:
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Description", name: "description", widget: "text" }
-      - label: "Login"
-        name: "login"
-        file: "src/content/login.md"
+      - label: "Contact Us"
+        name: "contact us"
+        file: "src/content/contact-us.md"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Description", name: "description", widget: "text" }
+          - label: "Description"
+            name: "description"
+            widget: list
+            fields:
+              - { label: "Paragraph", name: "paragraph", widget: "string" }
       - label: "Research Home"
         name: "research home"
         file: "src/content/research-home.md"

@@ -84,7 +84,7 @@ function OurSupporters({ data }) {
       <Layout links={linkArr} title={title}>
         <Container>
           <Row>
-            <Col xs={12} style={{ textAlign: "center" }}>
+            <Col xs={12} style={{ textAlign: "center", fontSize: "1.5rem" }}>
               {description}
             </Col>
           </Row>

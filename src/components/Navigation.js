@@ -24,7 +24,7 @@ export default function Navigation() {
     case "/our-supporters":
     case "/join-in":
     case path.match(/\/research.+/):
-    case "/login":
+    case "/contact-us":
       colour = "gray";
       break;
     default:
@@ -33,9 +33,9 @@ export default function Navigation() {
   return (
     <>
       <Navbar expand="lg" style={{ marginBottom: "2rem" }}>
-        <Navbar.Brand href="/">
+        <Navbar.Brand href="/" style={{ marginRight: 0 }}>
           <img
-            src="/assets/img/logo.png"
+            src="/assets/img/gwp-logo.webp"
             width="auto"
             height="120"
             alt="The good web project logo"
@@ -129,9 +129,18 @@ export default function Navigation() {
                 </a>
               </NavDropdown.Item>
             </NavDropdown>
-            <Button as={Link} href="/login">
-              <a className="nav-btn">Login</a>
-            </Button>
+            <Nav.Link as={Link} href="/contact-us">
+              <a
+                className={
+                  path == "/contact-us" ? "nav-link-selected" : "nav-link"
+                }
+              >
+                Contact Us
+              </a>
+            </Nav.Link>
+            {/* <Button as={Link} href="/contact-us">
+              <a className="nav-btn">Contact Us</a>
+            </Button> */}
           </div>
         </Navbar.Collapse>
         <style jsx>
@@ -139,9 +148,9 @@ export default function Navigation() {
             .nav-items {
               width: 100%;
               display: flex;
-              justify-content: space-around;
+              justify-content: space-evenly;
               align-items: center;
-              font-size: 1.4rem;
+              font-size: 1.7rem;
               font-weight: 600;
               color: ${colour} !important;
             }

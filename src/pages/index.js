@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 
 function Home() {
   const link = [
-    { rel: "preload", href: "/assets/img/home-bkg.png", as: "image" },
+    { rel: "preload", href: "/assets/img/home-bkg.webp", as: "image" },
   ];
   const title = "The Good Web Project";
 

@@ -59,8 +59,8 @@ const Research = ({ data }) => {
   }
 
   const links = [
-    { rel: "preload", href: "/assets/img/research-bkg.png", as: "image" },
-    { rel: "preload", href: "/assets/img/town2.png", as: "image" },
+    { rel: "preload", href: "/assets/img/research-bkg.webp", as: "image" },
+    { rel: "preload", href: "/assets/img/town2.webp", as: "image" },
   ];
   const title = "Research Home | The Good Web Project";
 
@@ -113,7 +113,7 @@ const Research = ({ data }) => {
             </Row>
           </Container>
           <div className="good-web">
-            <img src="/assets/img/town2.png" className="town" />
+            <img src="/assets/img/town2.webp" className="town" />
             <Link href="/research/security-and-sovereignty">
               <img
                 className="vector-1"
